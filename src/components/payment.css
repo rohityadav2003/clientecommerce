@@ -1,0 +1,134 @@
+
+.payment-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+.payment-box:hover {
+  transform: translateY(-3px);
+}
+
+
+.payment-box h4 {
+  font-size: 20px;
+   color: #333;
+  margin-bottom: 8px;
+}
+.payment-box p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+
+.address-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007185;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.address-link:hover {
+  color: #004e63;
+  text-decoration: underline;
+}
+
+.payment-method-title {
+  font-size: 22px;
+  color: #35ac75;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.payment-method-radio label {
+  display: block;
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.payment-method-radio input[type="radio"] {
+  margin-right: 10px;
+}
+
+
+.btn-pay,
+.btn-cod {
+  display: block;
+  width: 100%;
+  background-color: #35ac75;
+  color: white;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+.btn-pay:hover,
+.btn-cod:hover {
+  background-color: #2e9365;
+  transform: translateY(-2px);
+}
+
+
+.payment-error {
+  color: red;
+  font-weight: bold;
+}
+
+.summary-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 100px;
+}
+
+.summary-box h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 10px;
+}
+.summary-line strong {
+  color: #222;
+}
+
+.summary-line.total {
+  font-size: 16px;
+  font-weight: bold;
+  color: #111;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+
+@media (max-width: 768px) {
+  .summary-box {
+    margin-top: 20px;
+  }
+
+  .btn-pay,
+  .btn-cod {
+    font-size: 14px;
+  }
+} 
