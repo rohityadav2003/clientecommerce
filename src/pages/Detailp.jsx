@@ -5,7 +5,7 @@ import axios from "axios";
 import UserContext from "./Context";
 import ReactImageMagnify from 'react-image-magnify';
 import './detailp.css'; // 👈 Make sure to import the CSS here
-import ReactImageMagnify from 'react-image-magnify';
+
 
 export default function Detailp() {
   const location = useLocation();
@@ -113,7 +113,7 @@ ${process.env.BACKEND_URL}${select}`,
 </div> */}
 
 <div
-  className={`zoom-image image-animate-in`}
+  
   key={animationKey}
   onMouseEnter={() => setIsZoomed(true)}
   onMouseLeave={() => setIsZoomed(false)}
