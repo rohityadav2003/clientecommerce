@@ -5,6 +5,7 @@ import axios from "axios";
 import UserContext from "./Context";
 import ReactImageMagnify from 'react-image-magnify';
 import './detailp.css'; // 👈 Make sure to import the CSS here
+import ReactImageMagnify from 'react-image-magnify';
 
 export default function Detailp() {
   const location = useLocation();
@@ -79,7 +80,7 @@ ${process.env.BACKEND_URL}${imgsrc}`}
             ))}
           </div>
 
-      <div
+      {/* <div
   className={`zoom-image image-animate-in`}
   key={animationKey}
   onMouseEnter={() => setIsZoomed(true)}
@@ -109,8 +110,29 @@ ${process.env.BACKEND_URL}${select}`,
       shouldUsePositiveSpaceLens: true,
     }}
   />
-</div>
+</div> */}
 
+<div
+  className={`zoom-image image-animate-in`}
+  key={animationKey}
+  onMouseEnter={() => setIsZoomed(true)}
+  onMouseLeave={() => setIsZoomed(false)}
+  style={{ overflow: 'hidden', cursor: 'zoom-in', width: '400px', height: '600px' }} // adjust size as needed
+>
+  <img
+    src={`${process.env.BACKEND_URL}${select}`}
+    alt={item.product}
+    className={isZoomed ? 'zoomed' : ''}
+    style={{
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      transition: 'transform 0.3s ease',
+      transformOrigin: 'center center',
+      transform: isZoomed ? 'scale(1.8)' : 'scale(1)',
+    }}
+  />
+</div>
 
 
 <div
