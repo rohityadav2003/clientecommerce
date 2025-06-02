@@ -12,7 +12,7 @@ export default function Address() {
         e.preventDefault();
         try{
             const response=await axios.post(`
-${process.env.REACT_APP_BACKEND_URLL}/user/address`,address,{
+${process.env.REACT_APP_BACKEND_URL}/user/address`,address,{
                 headers:{
                     'Content-Type':'application/json',
                 },

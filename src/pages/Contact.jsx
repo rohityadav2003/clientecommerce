@@ -15,7 +15,7 @@ export default function Contact() {
     try {
       const response = await axios.post(
        `
-${process.env.REACT_APP_BACKEND_URLL}/admin/review`,
+${process.env.REACT_APP_BACKEND_URL}/admin/review`,
         formData,
         {
           headers: {

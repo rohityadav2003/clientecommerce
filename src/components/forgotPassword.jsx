@@ -68,7 +68,7 @@ export default function ForgotPassword() {
 
     try {
       const res = await axios.post(`
-${process.env.REACT_APP_BACKEND_URLL}/user/forgotPassword`, {
+${process.env.REACT_APP_BACKEND_URL}/user/forgotPassword`, {
         email,
         newPassword
       });

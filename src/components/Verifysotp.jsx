@@ -40,7 +40,7 @@ export default function VerifyOtp() {
     try {
       const res = await axios.post(
         `
-${process.env.REACT_APP_BACKEND_URLL}/user/verify-otp`,
+${process.env.REACT_APP_BACKEND_URL}/user/verify-otp`,
         form
       );
       setMessage(res.data.message);
@@ -66,7 +66,7 @@ ${process.env.REACT_APP_BACKEND_URLL}/user/verify-otp`,
     try {
       const res = await axios.post(
         `
-${process.env.REACT_APP_BACKEND_URLL}/user/resend-otp`,
+${process.env.REACT_APP_BACKEND_URL}/user/resend-otp`,
         { email: form.email }
       );
       setMessage(res.data.message);

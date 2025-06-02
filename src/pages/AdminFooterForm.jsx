@@ -21,7 +21,7 @@ export default function AdminFooterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios.post(`
-${process.env.REACT_APP_BACKEND_URLL}/api/footer`, form);
+${process.env.REACT_APP_BACKEND_URL}/api/footer`, form);
     alert("Footer content updated successfully!");
   };
 

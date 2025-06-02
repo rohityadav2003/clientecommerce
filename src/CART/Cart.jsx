@@ -202,7 +202,7 @@ export default function Cart() {
     const fetchCarts = async () => {
       try {
         const res = await axios.get(`
-${process.env.REACT_APP_BACKEND_URLL}/user/apicarts`, {
+${process.env.REACT_APP_BACKEND_URL}/user/apicarts`, {
           withCredentials: true,
         });
 
@@ -230,7 +230,7 @@ ${process.env.REACT_APP_BACKEND_URLL}/user/apicarts`, {
     try {
       await axios.post(
         `
-${process.env.REACT_APP_BACKEND_URLL}/user/deletecart`,
+${process.env.REACT_APP_BACKEND_URL}/user/deletecart`,
         { id },
         { withCredentials: true }
       );
@@ -319,7 +319,7 @@ ${process.env.REACT_APP_BACKEND_URLL}/user/deletecart`,
               </Checkbox>
               <Image
                 src={`
-${process.env.REACT_APP_BACKEND_URLL}${item.image1}`}
+${process.env.REACT_APP_BACKEND_URL}${item.image1}`}
                 alt={item.product}
               />
             </CardLeft>
