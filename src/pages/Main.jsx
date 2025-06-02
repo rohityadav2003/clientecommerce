@@ -218,138 +218,143 @@ export default function Main() {
           >
             new products
           </h5>
-         {Array.isArray(collection) && collection.length > 0 ? (
-  collection.map((item) => (
-    <div
-      key={item._id} // Add a unique key if available
-      className="col-12 col-sm-12 col-md-3 col-lg-3 d-flex justify-content-center"
-    >
-      <div
-        className="card card2 text-center"
-        style={{
-          width: "88%",
-          height: "auto",
-          background: "#35ac75",
-          border: "1px solid #0000001a",
-          borderRadius: "10px",
-          color: "#000",
-          padding: "0",
-          marginBottom: "30px",
-          overflow: "hidden",
-          boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-        }}
-      >
-        <div style={{ position: "relative" }}>
-          <div
-            style={{
-              position: "absolute",
-              top: "0",
-              left: "0",
-              backgroundColor: "#35ac75",
-              color: "white",
-              padding: "5px 10px",
-              borderBottomRightRadius: "50px",
-              fontSize: "0.8rem",
-              fontWeight: "bold",
-              zIndex: "1",
-            }}
-          >
-            {item.discountPrice}
-          </div>
-
-          <img
-            src={`${process.env.BACKEND_URL}${item.image1}`}
-            className="card-img-top"
-            alt="Product"
-            style={{
-              width: "100%",
-              height: "250px",
-              objectFit: "contain",
-              background: "#fff",
-              borderTopLeftRadius: "10px",
-              borderTopRightRadius: "10px",
-              padding: "0px",
-            }}
-          />
-        </div>
-
-        <ul
-          className="list-group list-group-flush"
-          style={{
-            fontSize: "14px",
-            backgroundColor: "rgb(241, 241, 241)",
-          }}
-        >
-          <li
-            className="list-group-item"
-            style={{
-              backgroundColor: "rgb(241, 241, 241)",
-              fontWeight: "bold",
-              marginBottom: "0.5rem",
-              textTransform: "capitalize",
-            }}
-          >
-            {item.product}
-          </li>
-          <li
-            className="list-group-item"
-            style={{
-              backgroundColor: "rgb(241, 241, 241)",
-              color: "black",
-              textTransform: "capitalize",
-              fontWeight: "bold",
-            }}
-          >
-            {item.stockStatus}
-          </li>
-          <li
-            className="list-group-item"
-            style={{
-              backgroundColor: "rgb(241, 241, 241)",
-              fontWeight: "bold",
-              color: "#35ac75",
-              marginBottom: "0",
-            }}
-          >
-            RS. {item.price}
-          </li>
-          <li>
-            <Link
-              to="/see"
-              state={{
-                detail: collection.filter((p) => p.product === item.product),
-              }}
-            >
-              <button
-                disabled={item.stockStatus !== "in-stock"}
-                className="btn btn-sm"
+          {collection?.map((item) => (
+            <div className="col-12 col-sm-12 col-md-3 col-lg-3 d-flex justify-content-center">
+              <div
+                className="card card2 text-center"
                 style={{
-                  backgroundColor: "#f0c14b",
+                  width: "88%",
+                  height: "auto",
+                  background: "#35ac75",
+                  border: "1px solid #0000001a",
+                  borderRadius: "10px",
                   color: "#000",
-                  borderRadius: "5px",
-                  margin: "0.2rem",
-                  padding: "0.5rem 1rem",
-                  border: "none",
-                  cursor:
-                    item.stockStatus === "in-stock"
-                      ? "pointer"
-                      : "not-allowed",
+                  padding: "0",
+                  marginBottom: "30px",
+                  overflow: "hidden",
+                  boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
                 }}
               >
-                ADD TO CART
-              </button>
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </div>
-  ))
-) : (
-  <p className="text-center" style={{ color: "gray", fontStyle: "italic" }}>
-    Loading or no items available.
-  </p>
-)}
+                <div style={{ position: "relative" }}>
+                  {/* Discount Badge */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "0",
+                      left: "0",
+                      backgroundColor: "#35ac75",
+                      color: "white",
+                      padding: "5px 10px",
+                      borderBottomRightRadius: "50px",
+                      fontSize: "0.8rem",
+                      fontWeight: "bold",
+                      zIndex: "1",
+                    }}
+                  >
+                    {item.discountPrice}
+                  </div>
 
+                  {/* Product Image */}
+                  <img
+                    src={`
+${process.env.BACKEND_URL}${item.image1}`}
+                    className="card-img-top"
+                    alt="Product"
+                    style={{
+                      width: "100%",
+                      height: "250px",
+                      objectFit: "contain",
+                      background: "#fff",
+                      borderTopLeftRadius: "10px",
+                      borderTopRightRadius: "10px",
+                      padding: "0px",
+                    }}
+                  />
+                </div>
+
+                <ul
+                  className="list-group list-group-flush"
+                  style={{
+                    fontSize: "14px",
+                    backgroundColor: "rgb(241, 241, 241)",
+                  }}
+                >
+                  <li
+                    className="list-group-item"
+                    style={{
+                      backgroundColor: "rgb(241, 241, 241)",
+                      fontWeight: "bold",
+                      marginBottom: "0.5rem",
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    {item.product}
+                  </li>
+                  <li
+                    className="list-group-item"
+                    style={{
+                      backgroundColor: "rgb(241, 241, 241)",
+                      borderColor: "",
+                      color: "black",
+                      textTransform: "capitalize",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {item.stockStatus}
+                  </li>
+                  {/* <li
+                    className="list-group-item"
+                    style={{
+                      backgroundColor: "rgb(241, 241, 241)",
+                      color: "rgb(0, 0, 0)",
+                    }}
+                  >
+                    ⭐⭐⭐⭐⭐
+                  </li> */}
+                  <li
+                    className="list-group-item"
+                    style={{
+                      backgroundColor: "rgb(241, 241, 241)",
+                      fontWeight: "bold",
+                      color: "#35ac75",
+                      marginBottom: "0",
+                    }}
+                  >
+                    RS. {item.price}
+                  </li>
+                  <li>
+                    <Link
+                      to="/see"
+                      state={{
+                        detail: collection.filter(
+                          (p) => p.product === item.product
+                        ),
+                      }}
+                    >
+                      <button
+                        disabled={item.stockStatus !== "in-stock"}
+                        className="btn btn-sm"
+                        style={{
+                          backgroundColor: "#f0c14b",
+                          color: "#000",
+                          borderRadius: "5px",
+                          margin: "0.2rem",
+                          padding: "0.5rem 1rem",
+                          border: "none",
+                          cursor:
+                            item.stockStatus === "in-stock"
+                              ? "pointer"
+                              : "not-allowed",
+                        }}
+                      >
+                        ADD TO CART
+                      </button>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* featured products */}
