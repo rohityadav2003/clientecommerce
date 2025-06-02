@@ -31,17 +31,18 @@ export default function Main() {
       }
     };
 
-    const collection = async () => {
-      try {
-        const response = await axios.get(
-          `${process.env.BACKEND_URL}/admin/apicollection`
-        );
-        console.log("API Response:", response.data.data1);
-        setcollection(response.data.data1);
-      } catch (err) {
-        console.error("Error fetching categories:", err.message);
-      }
-    };
+    const fetchCollection = async () => {
+  try {
+    const response = await axios.get(
+      `${process.env.BACKEND_URL}/admin/apicollection`
+    );
+    console.log("API Response:", response.data.data1);
+    setcollection(response.data.data1);
+  } catch (err) {
+    console.error("Error fetching categories:", err.message);
+  }
+};
+
     // subproduct//
     const product = async () => {
       try {
@@ -77,7 +78,8 @@ export default function Main() {
       }
     };
     fetchCategories();
-    collection();
+   fetchCollection();
+
     product();
     apiproduct();
     Reviews();
