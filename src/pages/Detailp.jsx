@@ -3,9 +3,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Home from "./Home";
 import axios from "axios";
 import UserContext from "./Context";
-import ReactImageMagnify from 'react-image-magnify';
-import './detailp.css'; // 👈 Make sure to import the CSS here
-
+// import ReactImageMagnify from 'react-image-magnify';
+import "./detailp.css"; // 👈 Make sure to import the CSS here
 
 export default function Detailp() {
   const location = useLocation();
@@ -14,13 +13,13 @@ export default function Detailp() {
   const [select, setselect] = useState(item.image1[0]);
   const navigate = useNavigate();
   const { userId, settotalamount, settotalitem } = useContext(UserContext);
-const [isZoomed, setIsZoomed] = useState(false);
-const [animationKey, setAnimationKey] = useState(0);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [animationKey, setAnimationKey] = useState(0);
 
-const handleThumbnailClick = (imgsrc) => {
-  setselect(imgsrc);
-  setAnimationKey(prev => prev + 1); // Trigger re-animation
-};
+  const handleThumbnailClick = (imgsrc) => {
+    setselect(imgsrc);
+    setAnimationKey((prev) => prev + 1); // Trigger re-animation
+  };
 
   const handlebtn = async (e) => {
     e.preventDefault();
@@ -57,7 +56,7 @@ ${process.env.BACKEND_URL}/user/cart`,
       alert("Please log in to proceed with the purchase.");
       return;
     }
-    navigate('/buy', { state: { productname: item.product } });
+    navigate("/buy", { state: { productname: item.product } });
     settotalamount(item.price);
     settotalitem(1);
   };
@@ -69,17 +68,16 @@ ${process.env.BACKEND_URL}/user/cart`,
         <div className="detail-wrapper">
           <div className="thumbnail-column">
             {item.image1.map((imgsrc, index) => (
-             <img
-  key={index}
-  src={`${process.env.BACKEND_URL}${imgsrc}`}
-  onClick={() => handleThumbnailClick(imgsrc)}
-  alt="thumbnail"
-/>
-
+              <img
+                key={index}
+                src={`${process.env.BACKEND_URL}${imgsrc}`}
+                onClick={() => handleThumbnailClick(imgsrc)}
+                alt="thumbnail"
+              />
             ))}
           </div>
 
-      <div
+          {/* <div
   className={`zoom-image image-animate-in`}
   key={animationKey}
   onMouseEnter={() => setIsZoomed(true)}
@@ -109,9 +107,24 @@ ${process.env.BACKEND_URL}${select}`,
       shouldUsePositiveSpaceLens: true,
     }}
   />
-</div>
+</div> */}
+          <div className="zoom-image image-animate-in" key={animationKey}>
+            <img
+              src={`${process.env.BACKEND_URL}${select}`}
+              alt={item.product}
+              className="selected-image"
+              style={{
+                width: "400px",
+                height: "500px",
+                objectFit: "cover",
+                borderRadius: "10px",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                transition: "all 0.3s ease",
+              }}
+            />
+          </div>
 
-{/* <div
+          {/* <div
   
   key={animationKey}
   onMouseEnter={() => setIsZoomed(true)}
@@ -133,23 +146,27 @@ ${process.env.BACKEND_URL}${select}`,
   />
 </div> */}
 
-
-<div
-  className="product-info"
-  style={{
-   
-    opacity: isZoomed ? 0.3 : 1,
-    pointerEvents: isZoomed ? 'none' : 'auto',
-    transition: 'opacity 0.3s ease',
-    visibility:isZoomed?"hidden":"visible"
-  }}
->
+          <div
+            className="product-info"
+            style={{
+              opacity: isZoomed ? 0.3 : 1,
+              pointerEvents: isZoomed ? "none" : "auto",
+              transition: "opacity 0.3s ease",
+              visibility: isZoomed ? "hidden" : "visible",
+            }}
+          >
             <h2>{item.product}</h2>
             <p className="price">Price: ₹{item.price}</p>
             <p className="discount">Discount Price: ₹{item.discountPrice}</p>
             <p>{item.description}</p>
-            <p className={`stock ${item.stockStatus === 'in-stock' ? 'in' : 'out'}`}>
-              {item.stockStatus === "in-stock" ? "✔ In Stock" : "❌ Out of Stock"}
+            <p
+              className={`stock ${
+                item.stockStatus === "in-stock" ? "in" : "out"
+              }`}
+            >
+              {item.stockStatus === "in-stock"
+                ? "✔ In Stock"
+                : "❌ Out of Stock"}
             </p>
 
             <div className="buttons">
