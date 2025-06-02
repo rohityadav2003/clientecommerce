@@ -102,18 +102,16 @@ export default function Main() {
 
   return (
     <div style={{ marginTop: "5px " }}>
-     <div className="banner">
-  <div className="banner-content">
-    <p className="typewriter-main">you are looking good</p>
-    <h1 className="typewriter-glow">final clearance up to 80% off</h1>
-    <div>
-      <button id="buts">discover more</button>
-    </div>
-  </div>
-</div>
+      <div className="banner">
+        <div className="banner-content">
+          <p className="typewriter-main">you are looking good</p>
+          <h1 className="typewriter-glow">final clearance up to 80% off</h1>
+          <div>
+            <button id="buts">discover more</button>
+          </div>
+        </div>
+      </div>
 
-
-      
       <div className="card-grid">
         {cards.map((card) => (
           <div className="custom-card" key={card.id}>
@@ -175,8 +173,7 @@ export default function Main() {
                 >
                   <img
                     id="different-categories"
-                    src={`
-${process.env.BACKEND_URL}${
+                    src={`${process.env.BACKEND_URL}${
                       hoveredImage === item.category
                         ? item.image[1]
                         : item.image[0]

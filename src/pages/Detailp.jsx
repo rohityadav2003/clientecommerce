@@ -71,8 +71,7 @@ ${process.env.BACKEND_URL}/user/cart`,
             {item.image1.map((imgsrc, index) => (
              <img
   key={index}
-  src={`
-${process.env.BACKEND_URL}${imgsrc}`}
+  src={`${process.env.BACKEND_URL}${imgsrc}`}
   onClick={() => handleThumbnailClick(imgsrc)}
   alt="thumbnail"
 />
@@ -80,7 +79,7 @@ ${process.env.BACKEND_URL}${imgsrc}`}
             ))}
           </div>
 
-      {/* <div
+      <div
   className={`zoom-image image-animate-in`}
   key={animationKey}
   onMouseEnter={() => setIsZoomed(true)}
@@ -110,9 +109,9 @@ ${process.env.BACKEND_URL}${select}`,
       shouldUsePositiveSpaceLens: true,
     }}
   />
-</div> */}
+</div>
 
-<div
+{/* <div
   
   key={animationKey}
   onMouseEnter={() => setIsZoomed(true)}
@@ -132,7 +131,7 @@ ${process.env.BACKEND_URL}${select}`,
       transform: isZoomed ? 'scale(1.8)' : 'scale(1)',
     }}
   />
-</div>
+</div> */}
 
 
 <div
