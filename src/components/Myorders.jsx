@@ -89,7 +89,7 @@ export default function Myorders() {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(`
-${process.env.BACKEND_URL}/admin/myorders`, {
+${process.env.REACT_APP_BACKEND_URLL}/admin/myorders`, {
           withCredentials: true,
         });
         setOrders(response.data);
@@ -105,7 +105,7 @@ ${process.env.BACKEND_URL}/admin/myorders`, {
     try {
       const response = await axios.put(
         `
-${process.env.BACKEND_URL}/admin/cancelorder/${orderId}`,
+${process.env.REACT_APP_BACKEND_URLL}/admin/cancelorder/${orderId}`,
         {},
         { withCredentials: true }
       );

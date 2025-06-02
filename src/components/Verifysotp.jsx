@@ -38,8 +38,11 @@ export default function VerifyOtp() {
     setError("");
     setMessage("");
     try {
-      const res = await axios.post(`
-${process.env.BACKEND_URL}/user/verify-otp`, form);
+      const res = await axios.post(
+        `
+${process.env.REACT_APP_BACKEND_URLL}/user/verify-otp`,
+        form
+      );
       setMessage(res.data.message);
       setCanResend(false);
       clearInterval(timerRef.current);
@@ -48,7 +51,9 @@ ${process.env.BACKEND_URL}/user/verify-otp`, form);
       }, 1500);
     } catch (err) {
       setError(err.response?.data?.message || "Verification failed");
-      if (err.response?.data?.message === "OTP expired. Please request a new OTP.") {
+      if (
+        err.response?.data?.message === "OTP expired. Please request a new OTP."
+      ) {
         setCanResend(true);
         clearInterval(timerRef.current);
       }
@@ -59,8 +64,11 @@ ${process.env.BACKEND_URL}/user/verify-otp`, form);
     setError("");
     setMessage("");
     try {
-      const res = await axios.post(`
-${process.env.BACKEND_URL}/user/resend-otp`, { email: form.email });
+      const res = await axios.post(
+        `
+${process.env.REACT_APP_BACKEND_URLL}/user/resend-otp`,
+        { email: form.email }
+      );
       setMessage(res.data.message);
       setCanResend(false);
       setTimeLeft(60);
@@ -93,7 +101,14 @@ ${process.env.BACKEND_URL}/user/resend-otp`, { email: form.email });
           animation: "fadeIn 0.6s ease-in-out",
         }}
       >
-        <h2 style={{ color: "#4a2fbd", marginBottom: "10px", fontSize: "24px", textAlign: "center" }}>
+        <h2
+          style={{
+            color: "#4a2fbd",
+            marginBottom: "10px",
+            fontSize: "24px",
+            textAlign: "center",
+          }}
+        >
           Verify Your Email
         </h2>
         <p
@@ -106,7 +121,10 @@ ${process.env.BACKEND_URL}/user/resend-otp`, { email: form.email });
         >
           Enter the 6-digit OTP sent to your email
         </p>
-        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column" }}>
+        <form
+          onSubmit={handleSubmit}
+          style={{ display: "flex", flexDirection: "column" }}
+        >
           <input
             type="email"
             name="email"

@@ -22,7 +22,7 @@ export default function Main() {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          `${process.env.BACKEND_URL}/admin/apimanage-category`
+          `${process.env.REACT_APP_BACKEND_URLL}/admin/apimanage-category`
         );
         console.log("API Response:", response.data.manage);
         setCategories(response.data.manage);
@@ -34,7 +34,7 @@ export default function Main() {
     const fetchCollection = async () => {
       try {
         const response = await axios.get(
-          `${process.env.BACKEND_URL}/admin/apicollection`
+          `${process.env.REACT_APP_BACKEND_URLL}/admin/apicollection`
         );
         console.log("API Response:", response.data.data1);
         setcollection(response.data.data1);
@@ -47,7 +47,7 @@ export default function Main() {
     const product = async () => {
       try {
         const response = await axios.get(
-          `${process.env.BACKEND_URL}/admin/apimanage-sub`
+          `${process.env.REACT_APP_BACKEND_URLL}/admin/apimanage-sub`
         );
         console.log("API Response:", response.data.managesub);
         setproduct(response.data.managesub);
@@ -58,7 +58,7 @@ export default function Main() {
     const apiproduct = async () => {
       try {
         const response = await axios.get(
-          `${process.env.BACKEND_URL}/admin/apiproduct`
+          `${process.env.REACT_APP_BACKEND_URLL}/admin/apiproduct`
         );
         console.log("API Response:", response.data.product);
         insetproduct(response.data.product);
@@ -70,7 +70,7 @@ export default function Main() {
     const Reviews = async () => {
       try {
         const response = await axios.get(
-          `${process.env.BACKEND_URL}/admin/apireviews`
+          `${process.env.REACT_APP_BACKEND_URLL}/admin/apireviews`
         );
         setrviews(response.data.reviews);
       } catch (err) {
@@ -175,7 +175,7 @@ export default function Main() {
                 >
                   <img
                     id="different-categories"
-                    src={`${process.env.BACKEND_URL}${
+                    src={`${process.env.REACT_APP_BACKEND_URLL}${
                       hoveredImage === item.category
                         ? item.image[1]
                         : item.image[0]
@@ -257,7 +257,7 @@ export default function Main() {
                   {/* Product Image */}
                   <img
                     src={`
-${process.env.BACKEND_URL}${item.image1}`}
+${process.env.REACT_APP_BACKEND_URLL}${item.image1}`}
                     className="card-img-top"
                     alt="Product"
                     style={{
@@ -395,7 +395,7 @@ ${process.env.BACKEND_URL}${item.image1}`}
                 <div className="card card2 text-center featured-card">
                   <img
                     src={`
-${process.env.BACKEND_URL}${item.image1}`}
+${process.env.REACT_APP_BACKEND_URLL}${item.image1}`}
                     className="card-img-top featured-img"
                     alt="Product"
                   />

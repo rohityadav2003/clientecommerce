@@ -30,7 +30,7 @@ export default function Detailp() {
     try {
       const response = await axios.post(
         `
-${process.env.BACKEND_URL}/user/cart`,
+${process.env.REACT_APP_BACKEND_URLL}/user/cart`,
         {
           product: item.product,
           price: item.price,
@@ -70,7 +70,7 @@ ${process.env.BACKEND_URL}/user/cart`,
             {item.image1.map((imgsrc, index) => (
               <img
                 key={index}
-                src={`${process.env.BACKEND_URL}${imgsrc}`}
+                src={`${process.env.REACT_APP_BACKEND_URLL}${imgsrc}`}
                 onClick={() => handleThumbnailClick(imgsrc)}
                 alt="thumbnail"
               />
@@ -89,11 +89,11 @@ ${process.env.BACKEND_URL}/user/cart`,
         alt: item.product,
         isFluidWidth: true,
         src: `
-${process.env.BACKEND_URL}${select}`,
+${process.env.REACT_APP_BACKEND_URLL}${select}`,
       },
       largeImage: {
         src: `
-${process.env.BACKEND_URL}${select}`,
+${process.env.REACT_APP_BACKEND_URLL}${select}`,
         width: 1200,
         height: 1800,
       },
@@ -110,7 +110,7 @@ ${process.env.BACKEND_URL}${select}`,
 </div> */}
           <div className="zoom-image image-animate-in" key={animationKey}>
             <img
-              src={`${process.env.BACKEND_URL}${select}`}
+              src={`${process.env.REACT_APP_BACKEND_URLL}${select}`}
               alt={item.product}
               className="selected-image"
               style={{
@@ -132,7 +132,7 @@ ${process.env.BACKEND_URL}${select}`,
   style={{ overflow: 'hidden', cursor: 'zoom-in', width: '400px', height: '600px' }} // adjust size as needed
 >
   <img
-    src={`${process.env.BACKEND_URL}${select}`}
+    src={`${process.env.REACT_APP_BACKEND_URLL}${select}`}
     alt={item.product}
     className={isZoomed ? 'zoomed' : ''}
     style={{

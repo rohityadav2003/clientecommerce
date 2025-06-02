@@ -87,7 +87,7 @@ export default function Home() {
   const handleLogout = async () => {
     try {
       const response = await axios.get(`
-${process.env.BACKEND_URL}/user/logoutapi`, {
+${process.env.REACT_APP_BACKEND_URLL}/user/logoutapi`, {
         withCredentials: true,
       });
       setUserId(null);
@@ -103,7 +103,7 @@ ${process.env.BACKEND_URL}/user/logoutapi`, {
       try {
         const response = await axios.get(
           `
-${process.env.BACKEND_URL}/user/fetchlogin`,
+${process.env.REACT_APP_BACKEND_URLL}/user/fetchlogin`,
           {
             withCredentials: true, // for session cookie
           }
@@ -116,7 +116,7 @@ ${process.env.BACKEND_URL}/user/fetchlogin`,
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          `${process.env.BACKEND_URL}/admin/apimanage-category`
+          `${process.env.REACT_APP_BACKEND_URLL}/admin/apimanage-category`
         );
         console.log("API Response:", response.data.manage);
         setCategories(response.data.manage);
@@ -129,7 +129,7 @@ ${process.env.BACKEND_URL}/user/fetchlogin`,
     const apiproduct = async () => {
       try {
         const response = await axios.get(
-          `${process.env.BACKEND_URL}/admin/apiproduct`
+          `${process.env.REACT_APP_BACKEND_URLL}/admin/apiproduct`
         );
         console.log("API Response:", response.data.product);
         insetproduct(response.data.product);
@@ -399,7 +399,7 @@ ${process.env.BACKEND_URL}/user/fetchlogin`,
                 <CategoryList key={index}>
                   <CategoryImage
                     src={`
-${process.env.BACKEND_URL}${item.image[1]}`}
+${process.env.REACT_APP_BACKEND_URLL}${item.image[1]}`}
                     alt="category"
                   />
                   <Link

@@ -24,7 +24,7 @@ export default function Results() {
             <div className="card-body"style={{padding:"15px",textAlign:"center"}}>
             <img
                 src={`
-${process.env.BACKEND_URL}${item.image1[0]}`}
+${process.env.REACT_APP_BACKEND_URLL}${item.image1[0]}`}
                 className="img-fluid"
                 style={{
                   height: "190px",

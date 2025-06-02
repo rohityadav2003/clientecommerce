@@ -13,7 +13,7 @@ const handlesubmit=async(e)=>{
   e.preventDefault();
   try{
  const response=await axios.post(`
-${process.env.BACKEND_URL}/user/signup`,users,{
+${process.env.REACT_APP_BACKEND_URLL}/user/signup`,users,{
   headers:{
     'Content-Type': 'application/json',
   },

@@ -112,7 +112,7 @@ export default function Payment() {
     const fetchPayment = async () => {
       try {
         const response = await axios.get(`
-${process.env.BACKEND_URL}/user/payment`, {
+${process.env.REACT_APP_BACKEND_URLL}/user/payment`, {
           withCredentials: true,
         });
         setPayment(response.data);
@@ -127,7 +127,7 @@ ${process.env.BACKEND_URL}/user/payment`, {
     try {
       const response = await axios.post(
         `
-${process.env.BACKEND_URL}/user/create-order`,
+${process.env.REACT_APP_BACKEND_URLL}/user/create-order`,
         { totalamounts },
         { withCredentials: true }
       );
@@ -157,7 +157,7 @@ ${process.env.BACKEND_URL}/user/create-order`,
     try {
       const response = await axios.post(
         `
-${process.env.BACKEND_URL}/admin/order-detail`,
+${process.env.REACT_APP_BACKEND_URLL}/admin/order-detail`,
         {
           username: payments[0]?.username,
           address: payments[0]?.address,
