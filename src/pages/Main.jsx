@@ -104,15 +104,20 @@ export default function Main() {
 
   return (
     <div style={{ marginTop: "5px " }}>
-      <div className="banner">
+     <div className="banner">
         <div className="banner-content">
-          <p className="typewriter-main">you are looking good</p>
-          <h1 className="typewriter-glow">final clearance up to 80% off</h1>
+          <p style={{ textTransform: "capitalize" }}>you are looking good</p>
+          <h1 style={{ textTransform: "capitalize" }}>
+            final clearance up to 80% off
+          </h1>
           <div>
-            <button id="buts">discover more</button>
+            <button style={{ textTransform: "capitalize" }} id="buts">
+              discover more
+            </button>
           </div>
         </div>
       </div>
+
 
       <div className="card-grid">
         {cards.map((card) => (
