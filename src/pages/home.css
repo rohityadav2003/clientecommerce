@@ -594,7 +594,7 @@ transform: scale(1.08);
     height: auto;
   }
   .inp input {
-    width: 50%;
+    width: 40%;
     padding: 3px 0px;
   }
   .search-input::placeholder {
@@ -613,7 +613,7 @@ transform: scale(1.08);
     margin-top: -3rem;
   }
   .carts i{
-    font-size: 15px;
+    font-size: 10px;
   }
   .profile-circle i{
     font-size: 20px !important;
