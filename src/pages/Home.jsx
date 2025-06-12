@@ -226,7 +226,7 @@ ${process.env.REACT_APP_BACKEND_URL}/user/fetchlogin`,
                     <i
                       className="fa-solid fa-cart-shopping"
                       style={{
-                        fontSize: "1.3rem",
+                        fontSize: "1rem",
                         color: "white",
                         WebkitTextStroke: "1px black",
                       }}
